@@ -1,61 +1,29 @@
-'use client'
-
 import Link from 'next/link'
 
 export default function Home() {
   return (
     <div className="container">
       <div className="header">
-        <h1>URBNWLF Onboarding Academy</h1>
-        <p>Vítejte v akademii pro nábor a školení nových zaměstnanců</p>
+        <h1>🏨 Hotelová Akademie</h1>
+        <p>Vítejte v akademii pro nábor a školení nových hotelových zaměstnanců</p>
         <nav>
           <Link href="/">Domů</Link>
+          <Link href="/videa">Video Akademie</Link>
+          <Link href="/kvizy">Kvízy</Link>
         </nav>
       </div>
 
       <div className="card">
-        <h2>Rezidence</h2>
-        <p style={{ marginBottom: '1.5rem', color: '#000' }}>
-          Vyberte rezidenci pro zobrazení návodů a informací
-        </p>
-        <div 
-          className="location-grid"
-          style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(2, 1fr)', 
-            gap: '1.5rem',
-            marginTop: '1.5rem'
-          }}
-        >
-          <Link href="/old-royal-post" className="location-card">
-            <h3>Old Royal Post</h3>
-          </Link>
-
-          <Link href="/opletalova" className="location-card">
-            <h3>Opletalova</h3>
-          </Link>
-
-          <Link href="/karoliny-svetle" className="location-card">
-            <h3>Karolíny Světlé</h3>
-          </Link>
-
-          <Link href="/nosticova" className="location-card">
-            <h3>Nosticova</h3>
-          </Link>
-        </div>
-      </div>
-
-      <div className="card">
-        <h2>Vítejte v URBNWLF Onboarding Academy</h2>
-        <p style={{ marginBottom: '1.5rem', color: '#000', lineHeight: '1.6' }}>
-          Tato akademie je navržena pro efektivní nábor a školení nových zaměstnanců. 
+        <h2>Vítejte v Hotelové Akademii</h2>
+        <p style={{ marginBottom: '1.5rem', color: '#666', lineHeight: '1.6' }}>
+          Tato akademie je navržena pro efektivní nábor a školení nových zaměstnanců v hotelovém průmyslu. 
           Prozkoumejte naše vzdělávací videa a otestujte své znalosti pomocí interaktivních kvízů.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
-          <div style={{ padding: '1.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
-            <h3 style={{ color: '#22c55e', marginBottom: '1rem' }}>📹 Video Akademie</h3>
-            <p style={{ color: '#000', marginBottom: '1rem', fontSize: '0.9rem' }}>
+          <div style={{ padding: '1.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+            <h3 style={{ color: '#667eea', marginBottom: '1rem' }}>📹 Video Akademie</h3>
+            <p style={{ color: '#666', marginBottom: '1rem', fontSize: '0.9rem' }}>
               Naučte se základy hotelového provozu prostřednictvím našich vzdělávacích videí.
             </p>
             <Link href="/videa" className="btn">Prozkoumat videa</Link>
@@ -63,7 +31,7 @@ export default function Home() {
 
           <div style={{ padding: '1.5rem', background: '#fff8f0', borderRadius: '8px' }}>
             <h3 style={{ color: '#f39c12', marginBottom: '1rem' }}>🧩 Kvízy</h3>
-            <p style={{ color: '#000', marginBottom: '1rem', fontSize: '0.9rem' }}>
+            <p style={{ color: '#666', marginBottom: '1rem', fontSize: '0.9rem' }}>
               Otestujte své znalosti a získejte certifikát absolvováním našich kvízů.
             </p>
             <Link href="/kvizy" className="btn">Začít kvíz</Link>
@@ -74,19 +42,19 @@ export default function Home() {
       <div className="card">
         <h2>Co se naučíte?</h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
             ✅ Základy recepčního provozu a check-in/check-out procesů
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
             ✅ Standardy služeb a komunikace s hosty
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
             ✅ Správa pokojů a housekeeping
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
             ✅ Bezpečnostní protokoly a postupy
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
             ✅ Řešení stížností a zvládání náročných situací
           </li>
         </ul>
