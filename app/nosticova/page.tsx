@@ -41,33 +41,14 @@ export default function NosticovaPage() {
       </div>
 
       <div className="card" style={{ marginBottom: '2rem' }}>
-        <h2 style={{ marginBottom: '1.5rem' }}>Sekce</h2>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(3, 1fr)', 
-          gap: '1rem'
-        }}>
-          <Link href="/nosticova/bezpecnost" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>Bezpečnost</h3>
-          </Link>
-          <Link href="/nosticova/jak-na-to" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>Jak na to</h3>
-          </Link>
-          <Link href="/nosticova/o-rezidenci" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>O rezidenci</h3>
-          </Link>
-        </div>
-      </div>
-
-      <div className="card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h2>Návody - Nosticova</h2>
+          <h2>Aktuality - Nosticova</h2>
           <button 
             onClick={() => setShowAddForm(!showAddForm)} 
             className="btn"
             style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
           >
-            {showAddForm ? 'Zrušit' : '+ Přidat návod'}
+            {showAddForm ? 'Zrušit' : '+ Přidat aktualitu'}
           </button>
         </div>
 
@@ -79,10 +60,10 @@ export default function NosticovaPage() {
             marginBottom: '2rem',
             border: '2px solid #22c55e'
           }}>
-            <h3 style={{ marginBottom: '1rem', color: '#333' }}>Nový návod</h3>
+            <h3 style={{ marginBottom: '1rem', color: '#333' }}>Nová aktualita</h3>
             <input
               type="text"
-              placeholder="Název návodu"
+              placeholder="Název aktuality"
               value={newGuideTitle}
               onChange={(e) => setNewGuideTitle(e.target.value)}
               style={{
@@ -95,7 +76,7 @@ export default function NosticovaPage() {
               }}
             />
             <textarea
-              placeholder="Obsah návodu"
+              placeholder="Obsah aktuality"
               value={newGuideContent}
               onChange={(e) => setNewGuideContent(e.target.value)}
               rows={6}
@@ -111,14 +92,14 @@ export default function NosticovaPage() {
               }}
             />
             <button onClick={handleAddGuide} className="btn">
-              Uložit návod
+              Uložit aktualitu
             </button>
           </div>
         )}
 
         {guides.length === 0 ? (
           <p style={{ color: '#666', textAlign: 'center', padding: '2rem' }}>
-            Zatím nejsou žádné návody. Klikněte na "Přidat návod" pro vytvoření prvního návodu.
+            Zatím nejsou žádné aktuality. Klikněte na "Přidat aktualitu" pro vytvoření první aktuality.
           </p>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -154,6 +135,25 @@ export default function NosticovaPage() {
             ))}
           </div>
         )}
+      </div>
+
+      <div className="card">
+        <h2 style={{ marginBottom: '1.5rem' }}>Sekce</h2>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(3, 1fr)', 
+          gap: '1rem'
+        }}>
+          <Link href="/nosticova/bezpecnost" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>Bezpečnost</h3>
+          </Link>
+          <Link href="/nosticova/jak-na-to" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>Jak na to</h3>
+          </Link>
+          <Link href="/nosticova/o-rezidenci" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>O rezidenci</h3>
+          </Link>
+        </div>
       </div>
     </div>
   )
