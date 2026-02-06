@@ -15,7 +15,7 @@ export default function Home() {
 
       <div className="card">
         <h2>Rezidence</h2>
-        <p style={{ marginBottom: '1.5rem', color: '#666' }}>
+        <p style={{ marginBottom: '1.5rem', color: '#000' }}>
           Vyberte rezidenci pro zobrazení návodů a informací
         </p>
         <div 
@@ -47,7 +47,7 @@ export default function Home() {
 
       <div className="card">
         <h2>Vítejte v URBNWLF Onboarding Academy</h2>
-        <p style={{ marginBottom: '1.5rem', color: '#666', lineHeight: '1.6' }}>
+        <p style={{ marginBottom: '1.5rem', color: '#000', lineHeight: '1.6' }}>
           Tato akademie je navržena pro efektivní nábor a školení nových zaměstnanců. 
           Prozkoumejte naše vzdělávací videa a otestujte své znalosti pomocí interaktivních kvízů.
         </p>
@@ -55,7 +55,7 @@ export default function Home() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
           <div style={{ padding: '1.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             <h3 style={{ color: '#22c55e', marginBottom: '1rem' }}>📹 Video Akademie</h3>
-            <p style={{ color: '#666', marginBottom: '1rem', fontSize: '0.9rem' }}>
+            <p style={{ color: '#000', marginBottom: '1rem', fontSize: '0.9rem' }}>
               Naučte se základy hotelového provozu prostřednictvím našich vzdělávacích videí.
             </p>
             <Link href="/videa" className="btn">Prozkoumat videa</Link>
@@ -63,7 +63,7 @@ export default function Home() {
 
           <div style={{ padding: '1.5rem', background: '#fff8f0', borderRadius: '8px' }}>
             <h3 style={{ color: '#f39c12', marginBottom: '1rem' }}>🧩 Kvízy</h3>
-            <p style={{ color: '#666', marginBottom: '1rem', fontSize: '0.9rem' }}>
+            <p style={{ color: '#000', marginBottom: '1rem', fontSize: '0.9rem' }}>
               Otestujte své znalosti a získejte certifikát absolvováním našich kvízů.
             </p>
             <Link href="/kvizy" className="btn">Začít kvíz</Link>

@@ -322,7 +322,7 @@ export default function QuizPage() {
         <div className="results">
           <h2>{quiz.title}</h2>
           <div className="score">{score}%</div>
-          <p style={{ color: '#666', marginBottom: '2rem' }}>
+          <p style={{ color: '#000', marginBottom: '2rem' }}>
             Správně jste odpověděli na {Object.values(selectedAnswers).filter((ans, idx) => 
               ans === quiz.questions[idx].correctAnswer
             ).length} z {quiz.questions.length} otázek
@@ -383,7 +383,7 @@ export default function QuizPage() {
       <div className="quiz-container">
         <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
           <h2>{quiz.title}</h2>
-          <p style={{ color: '#666' }}>
+          <p style={{ color: '#000' }}>
             Otázka {currentQuestion + 1} z {quiz.questions.length}
           </p>
           <div style={{ 

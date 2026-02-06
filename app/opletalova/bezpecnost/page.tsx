@@ -75,7 +75,7 @@ export default function BezpecnostPage() {
             marginBottom: '2rem',
             border: '2px solid #22c55e'
           }}>
-            <h3 style={{ marginBottom: '1rem', color: '#333' }}>Nový návod</h3>
+            <h3 style={{ marginBottom: '1rem', color: '#000' }}>Nový návod</h3>
             <input
               type="text"
               placeholder="Název návodu"
@@ -113,7 +113,7 @@ export default function BezpecnostPage() {
         )}
 
         {guides.length === 0 ? (
-          <p style={{ color: '#666', textAlign: 'center', padding: '2rem' }}>
+          <p style={{ color: '#000', textAlign: 'center', padding: '2rem' }}>
             Zatím nejsou žádné návody. Klikněte na "Přidat návod" pro vytvoření prvního návodu.
           </p>
         ) : (
@@ -121,11 +121,11 @@ export default function BezpecnostPage() {
             {guides.map((guide) => (
               <div key={guide.id} className="card" style={{ marginBottom: 0 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
-                  <h3 style={{ color: '#333', margin: 0 }}>{guide.title}</h3>
-                  <span style={{ color: '#999', fontSize: '0.85rem' }}>{guide.createdAt}</span>
+                  <h3 style={{ color: '#000', margin: 0 }}>{guide.title}</h3>
+                  <span style={{ color: '#000', fontSize: '0.85rem' }}>{guide.createdAt}</span>
                 </div>
                 <div style={{ 
-                  color: '#666', 
+                  color: '#000', 
                   lineHeight: '1.6',
                   whiteSpace: 'pre-wrap'
                 }}>

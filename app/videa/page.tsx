@@ -76,7 +76,7 @@ export default function VideaPage() {
 
       <div className="card">
         <h2>Vzdělávací videa</h2>
-        <p style={{ marginBottom: '1.5rem', color: '#666' }}>
+        <p style={{ marginBottom: '1.5rem', color: '#000' }}>
           Prozkoumejte naši sbírku vzdělávacích videí zaměřených na hotelový provoz.
         </p>
 
@@ -121,7 +121,7 @@ export default function VideaPage() {
                 <h3>{video.title}</h3>
                 <p>{video.description}</p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ color: '#999', fontSize: '0.85rem' }}>⏱️ {video.duration}</span>
+                  <span style={{ color: '#000', fontSize: '0.85rem' }}>⏱️ {video.duration}</span>
                   <Link href={`/videa/${video.id}`} className="btn" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
                     Sledovat
                   </Link>

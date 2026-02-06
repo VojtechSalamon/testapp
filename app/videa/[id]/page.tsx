@@ -74,8 +74,8 @@ export default function VideoPlayerPage() {
           }}>
             {video.category}
           </span>
-          <h1 style={{ color: '#333', marginBottom: '0.5rem' }}>{video.title}</h1>
-          <p style={{ color: '#666' }}>{video.description}</p>
+          <h1 style={{ color: '#000', marginBottom: '0.5rem' }}>{video.title}</h1>
+          <p style={{ color: '#000' }}>{video.description}</p>
         </div>
 
         <div className="video-player">

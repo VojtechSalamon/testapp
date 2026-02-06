@@ -54,7 +54,7 @@ export default function KvizyPage() {
 
       <div className="card">
         <h2>Dostupné kvízy</h2>
-        <p style={{ marginBottom: '1.5rem', color: '#666' }}>
+        <p style={{ marginBottom: '1.5rem', color: '#000' }}>
           Otestujte své znalosti a získejte certifikát absolvováním našich kvízů.
         </p>
 
@@ -79,7 +79,7 @@ export default function KvizyPage() {
                 <h3>{quiz.title}</h3>
                 <p>{quiz.description}</p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
-                  <span style={{ color: '#999', fontSize: '0.85rem' }}>❓ {quiz.questionCount} otázek</span>
+                  <span style={{ color: '#000', fontSize: '0.85rem' }}>❓ {quiz.questionCount} otázek</span>
                   <Link href={`/kvizy/${quiz.id}`} className="btn" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
                     Začít kvíz
                   </Link>

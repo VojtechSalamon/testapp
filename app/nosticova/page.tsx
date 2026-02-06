@@ -41,6 +41,25 @@ export default function NosticovaPage() {
       </div>
 
       <div className="card" style={{ marginBottom: '2rem' }}>
+        <h2 style={{ marginBottom: '1.5rem' }}>Sekce</h2>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(3, 1fr)', 
+          gap: '1rem'
+        }}>
+          <Link href="/nosticova/bezpecnost" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>Bezpečnost</h3>
+          </Link>
+          <Link href="/nosticova/jak-na-to" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>Jak na to</h3>
+          </Link>
+          <Link href="/nosticova/o-rezidenci" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>O rezidenci</h3>
+          </Link>
+        </div>
+      </div>
+
+      <div className="card" style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
           <h2>Aktuality - Nosticova</h2>
           <button 
@@ -60,7 +79,7 @@ export default function NosticovaPage() {
             marginBottom: '2rem',
             border: '2px solid #22c55e'
           }}>
-            <h3 style={{ marginBottom: '1rem', color: '#333' }}>Nová aktualita</h3>
+            <h3 style={{ marginBottom: '1rem', color: '#000' }}>Nová aktualita</h3>
             <input
               type="text"
               placeholder="Název aktuality"
@@ -98,7 +117,7 @@ export default function NosticovaPage() {
         )}
 
         {guides.length === 0 ? (
-          <p style={{ color: '#666', textAlign: 'center', padding: '2rem' }}>
+          <p style={{ color: '#000', textAlign: 'center', padding: '2rem' }}>
             Zatím nejsou žádné aktuality. Klikněte na "Přidat aktualitu" pro vytvoření první aktuality.
           </p>
         ) : (
@@ -106,11 +125,11 @@ export default function NosticovaPage() {
             {guides.map((guide) => (
               <div key={guide.id} className="card" style={{ marginBottom: 0 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
-                  <h3 style={{ color: '#333', margin: 0 }}>{guide.title}</h3>
-                  <span style={{ color: '#999', fontSize: '0.85rem' }}>{guide.createdAt}</span>
+                  <h3 style={{ color: '#000', margin: 0 }}>{guide.title}</h3>
+                  <span style={{ color: '#000', fontSize: '0.85rem' }}>{guide.createdAt}</span>
                 </div>
                 <div style={{ 
-                  color: '#666', 
+                  color: '#000', 
                   lineHeight: '1.6',
                   whiteSpace: 'pre-wrap'
                 }}>
@@ -135,25 +154,6 @@ export default function NosticovaPage() {
             ))}
           </div>
         )}
-      </div>
-
-      <div className="card">
-        <h2 style={{ marginBottom: '1.5rem' }}>Sekce</h2>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(3, 1fr)', 
-          gap: '1rem'
-        }}>
-          <Link href="/nosticova/bezpecnost" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>Bezpečnost</h3>
-          </Link>
-          <Link href="/nosticova/jak-na-to" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>Jak na to</h3>
-          </Link>
-          <Link href="/nosticova/o-rezidenci" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>O rezidenci</h3>
-          </Link>
-        </div>
       </div>
     </div>
   )
