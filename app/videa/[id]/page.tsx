@@ -67,7 +67,7 @@ export default function VideoPlayerPage() {
         <div style={{ marginBottom: '1rem' }}>
           <span style={{ 
             display: 'inline-block', 
-            background: '#667eea', 
+            background: '#22c55e', 
             color: 'white', 
             padding: '0.25rem 0.75rem', 
             borderRadius: '4px', 
@@ -103,16 +103,16 @@ export default function VideoPlayerPage() {
       <div className="card">
         <h2>Klíčové body tohoto videa:</h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✓ Profesionální přístup k hostům
           </li>
-          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✓ Efektivní komunikace
           </li>
-          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✓ Dodržování standardů služeb
           </li>
-          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '0.75rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✓ Praktické tipy a triky
           </li>
         </ul>

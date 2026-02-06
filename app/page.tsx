@@ -21,8 +21,8 @@ export default function Home() {
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
-          <div style={{ padding: '1.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
-            <h3 style={{ color: '#667eea', marginBottom: '1rem' }}>📹 Video Akademie</h3>
+          <div style={{ padding: '1.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
+            <h3 style={{ color: '#22c55e', marginBottom: '1rem' }}>📹 Video Akademie</h3>
             <p style={{ color: '#666', marginBottom: '1rem', fontSize: '0.9rem' }}>
               Naučte se základy hotelového provozu prostřednictvím našich vzdělávacích videí.
             </p>
@@ -42,19 +42,19 @@ export default function Home() {
       <div className="card">
         <h2>Co se naučíte?</h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✅ Základy recepčního provozu a check-in/check-out procesů
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✅ Standardy služeb a komunikace s hosty
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✅ Správa pokojů a housekeeping
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✅ Bezpečnostní protokoly a postupy
           </li>
-          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f8f9ff', borderRadius: '8px' }}>
+          <li style={{ padding: '1rem', marginBottom: '0.5rem', background: '#f0fdf4', borderRadius: '8px' }}>
             ✅ Řešení stížností a zvládání náročných situací
           </li>
         </ul>

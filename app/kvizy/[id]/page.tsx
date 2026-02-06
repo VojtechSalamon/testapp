@@ -401,7 +401,7 @@ export default function QuizPage() {
             <div style={{ 
               width: `${((currentQuestion + 1) / quiz.questions.length) * 100}%`, 
               height: '100%', 
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              background: 'linear-gradient(135deg, #22c55e 0%, #059669 100%)',
               transition: 'width 0.3s ease'
             }} />
           </div>

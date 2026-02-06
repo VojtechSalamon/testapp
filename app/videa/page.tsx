@@ -90,7 +90,7 @@ export default function VideaPage() {
               className="btn"
               style={{
                 background: selectedCategory === category 
-                  ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
+                  ? 'linear-gradient(135deg, #22c55e 0%, #059669 100%)' 
                   : '#e0e0e0',
                 color: selectedCategory === category ? 'white' : '#333',
                 padding: '0.5rem 1rem',
@@ -111,7 +111,7 @@ export default function VideaPage() {
               <div className="video-info">
                 <span style={{ 
                   display: 'inline-block', 
-                  background: '#667eea', 
+                  background: '#22c55e', 
                   color: 'white', 
                   padding: '0.25rem 0.75rem', 
                   borderRadius: '4px', 
