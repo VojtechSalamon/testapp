@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 
 export default function Home() {
@@ -8,11 +10,43 @@ export default function Home() {
         <p>Vítejte v akademii pro nábor a školení nových zaměstnanců</p>
         <nav>
           <Link href="/">Domů</Link>
-          <Link href="/old-royal-post">Old Royal Post</Link>
-          <Link href="/opletalova">Opletalova</Link>
-          <Link href="/karoliny-svetle">Karolíny Světlé</Link>
-          <Link href="/nosticova">Nosticova</Link>
         </nav>
+      </div>
+
+      <div className="card">
+        <h2>Rezidence</h2>
+        <p style={{ marginBottom: '1.5rem', color: '#666' }}>
+          Vyberte rezidenci pro zobrazení návodů a informací
+        </p>
+        <div 
+          className="location-grid"
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(2, 1fr)', 
+            gap: '1.5rem',
+            marginTop: '1.5rem'
+          }}
+        >
+          <Link href="/old-royal-post" className="location-card">
+            <h3>Old Royal Post</h3>
+            <p>Návody a informace</p>
+          </Link>
+
+          <Link href="/opletalova" className="location-card">
+            <h3>Opletalova</h3>
+            <p>Návody a informace</p>
+          </Link>
+
+          <Link href="/karoliny-svetle" className="location-card">
+            <h3>Karolíny Světlé</h3>
+            <p>Návody a informace</p>
+          </Link>
+
+          <Link href="/nosticova" className="location-card">
+            <h3>Nosticova</h3>
+            <p>Návody a informace</p>
+          </Link>
+        </div>
       </div>
 
       <div className="card">

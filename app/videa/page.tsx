@@ -71,10 +71,6 @@ export default function VideaPage() {
         <h1>📹 Video Akademie</h1>
         <nav>
           <Link href="/">Domů</Link>
-          <Link href="/old-royal-post">Old Royal Post</Link>
-          <Link href="/opletalova">Opletalova</Link>
-          <Link href="/karoliny-svetle">Karolíny Světlé</Link>
-          <Link href="/nosticova">Nosticova</Link>
           <Link href="/videa">Video Akademie</Link>
           <Link href="/kvizy">Kvízy</Link>
         </nav>
