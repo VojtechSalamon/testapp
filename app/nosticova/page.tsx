@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface Guide {
   id: string
@@ -19,9 +19,41 @@ export default function NosticovaPage() {
   const [newGuideDate, setNewGuideDate] = useState(new Date().toISOString().split('T')[0])
   const [showAddForm, setShowAddForm] = useState(false)
 
+  useEffect(() => {
+    const saved = localStorage.getItem('nosticova-aktuality')
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved)
+        setGuides(parsed.map((g: any) => ({
+          ...g,
+          createdDate: new Date(g.createdDate)
+        })))
+      } catch (e) {
+        console.error('Error loading aktuality:', e)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (guides.length > 0) {
+      localStorage.setItem('nosticova-aktuality', JSON.stringify(guides))
+    }
+  }, [guides])
+
   const isNew = (createdDate: Date) => {
     const daysDiff = (new Date().getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24)
-    return daysDiff <= 7 // Nová aktualita je méně než 7 dní stará
+    return daysDiff <= 7
+  }
+
+  const getLatestGuides = () => {
+    return guides
+      .sort((a, b) => b.createdDate.getTime() - a.createdDate.getTime())
+      .slice(0, 3)
+  }
+
+  const truncateContent = (content: string, maxLength: number = 150) => {
+    if (content.length <= maxLength) return content
+    return content.substring(0, maxLength) + '...'
   }
 
   const handleAddGuide = () => {
@@ -41,10 +73,6 @@ export default function NosticovaPage() {
       setNewGuideDate(new Date().toISOString().split('T')[0])
       setShowAddForm(false)
     }
-  }
-
-  const handleToggleResolved = (id: string) => {
-    setGuides(guides.map(g => g.id === id ? { ...g, isResolved: !g.isResolved } : g))
   }
 
   return (
@@ -76,13 +104,22 @@ export default function NosticovaPage() {
       <div className="card" style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
           <h2>Aktuality - Nosticova</h2>
-          <button 
-            onClick={() => setShowAddForm(!showAddForm)} 
-            className="btn"
-            style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
-          >
-            {showAddForm ? 'Zrušit' : '+ Přidat aktualitu'}
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button 
+              onClick={() => setShowAddForm(!showAddForm)} 
+              className="btn"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+            >
+              {showAddForm ? 'Zrušit' : 'Přidat'}
+            </button>
+            <Link 
+              href="/nosticova/aktuality"
+              className="btn"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+            >
+              Zobrazit všechny
+            </Link>
+          </div>
         </div>
 
         {showAddForm && (
@@ -91,7 +128,7 @@ export default function NosticovaPage() {
             background: '#f9fafb', 
             borderRadius: '8px', 
             marginBottom: '2rem',
-            border: '2px solid #22c55e'
+            border: '2px solid #000'
           }}>
             <h3 style={{ marginBottom: '1rem', color: '#000' }}>Nová aktualita</h3>
             <input
@@ -145,11 +182,11 @@ export default function NosticovaPage() {
 
         {guides.length === 0 ? (
           <p style={{ color: '#000', textAlign: 'center', padding: '2rem' }}>
-            Zatím nejsou žádné aktuality. Klikněte na "Přidat aktualitu" pro vytvoření první aktuality.
+            Zatím nejsou žádné aktuality.
           </p>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {guides.map((guide) => {
+            {getLatestGuides().map((guide) => {
               const newGuide = isNew(guide.createdDate)
               return (
                 <div key={guide.id} className="card" style={{ marginBottom: 0, opacity: guide.isResolved ? 0.6 : 1 }}>
@@ -181,32 +218,7 @@ export default function NosticovaPage() {
                     whiteSpace: 'pre-wrap',
                     textDecoration: guide.isResolved ? 'line-through' : 'none'
                   }}>
-                    {guide.content}
-                  </div>
-                  <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', alignItems: 'center' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
-                      <input
-                        type="checkbox"
-                        checked={guide.isResolved}
-                        onChange={() => handleToggleResolved(guide.id)}
-                        style={{ width: '18px', height: '18px', cursor: 'pointer' }}
-                      />
-                      <span style={{ color: '#000', fontSize: '0.9rem' }}>Vyřešeno</span>
-                    </label>
-                    <button
-                      onClick={() => setGuides(guides.filter(g => g.id !== guide.id))}
-                      style={{
-                        padding: '0.5rem 1rem',
-                        background: '#dc3545',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        fontSize: '0.9rem'
-                      }}
-                    >
-                      Smazat
-                    </button>
+                    {truncateContent(guide.content)}
                   </div>
                 </div>
               )

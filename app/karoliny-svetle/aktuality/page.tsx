@@ -12,7 +12,7 @@ interface Guide {
   isResolved: boolean
 }
 
-export default function OldRoyalPostPage() {
+export default function AktualityPage() {
   const [guides, setGuides] = useState<Guide[]>([])
   const [newGuideTitle, setNewGuideTitle] = useState('')
   const [newGuideContent, setNewGuideContent] = useState('')
@@ -20,7 +20,7 @@ export default function OldRoyalPostPage() {
   const [showAddForm, setShowAddForm] = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem('old-royal-post-aktuality')
+    const saved = localStorage.getItem('karoliny-svetle-aktuality')
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
@@ -36,24 +36,13 @@ export default function OldRoyalPostPage() {
 
   useEffect(() => {
     if (guides.length > 0) {
-      localStorage.setItem('old-royal-post-aktuality', JSON.stringify(guides))
+      localStorage.setItem('karoliny-svetle-aktuality', JSON.stringify(guides))
     }
   }, [guides])
 
   const isNew = (createdDate: Date) => {
     const daysDiff = (new Date().getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24)
     return daysDiff <= 7
-  }
-
-  const getLatestGuides = () => {
-    return guides
-      .sort((a, b) => b.createdDate.getTime() - a.createdDate.getTime())
-      .slice(0, 3)
-  }
-
-  const truncateContent = (content: string, maxLength: number = 150) => {
-    if (content.length <= maxLength) return content
-    return content.substring(0, maxLength) + '...'
   }
 
   const handleAddGuide = () => {
@@ -75,51 +64,35 @@ export default function OldRoyalPostPage() {
     }
   }
 
+  const handleToggleResolved = (id: string) => {
+    setGuides(guides.map(g => g.id === id ? { ...g, isResolved: !g.isResolved } : g))
+  }
+
   return (
     <div className="container">
       <div className="header">
-        <h1>Old Royal Post</h1>
+        <h1>Karolíny Světlé - Aktuality</h1>
         <nav>
           <Link href="/">Domů</Link>
         </nav>
       </div>
 
-      <div style={{ 
-        display: 'flex', 
-        gap: '1rem', 
-        marginBottom: '2rem',
-        flexWrap: 'wrap'
-      }}>
-        <Link href="/old-royal-post/bezpecnost" className="btn" style={{ textAlign: 'center' }}>
-          Bezpečnost
-        </Link>
-        <Link href="/old-royal-post/jak-na-to" className="btn" style={{ textAlign: 'center' }}>
-          Jak na to
-        </Link>
-        <Link href="/old-royal-post/o-rezidenci" className="btn" style={{ textAlign: 'center' }}>
-          O rezidenci
+      <div style={{ marginBottom: '1.5rem' }}>
+        <Link href="/karoliny-svetle" className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+          ← Zpět na Karolíny Světlé
         </Link>
       </div>
 
       <div className="card" style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h2>Aktuality - Old Royal Post</h2>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <button 
-              onClick={() => setShowAddForm(!showAddForm)} 
-              className="btn"
-              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
-            >
-              {showAddForm ? 'Zrušit' : 'Přidat'}
-            </button>
-            <Link 
-              href="/old-royal-post/aktuality"
-              className="btn"
-              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
-            >
-              Zobrazit všechny
-            </Link>
-          </div>
+          <h2>Aktuality - Karolíny Světlé</h2>
+          <button 
+            onClick={() => setShowAddForm(!showAddForm)} 
+            className="btn"
+            style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+          >
+            {showAddForm ? 'Zrušit' : '+ Přidat aktualitu'}
+          </button>
         </div>
 
         {showAddForm && (
@@ -182,47 +155,74 @@ export default function OldRoyalPostPage() {
 
         {guides.length === 0 ? (
           <p style={{ color: '#000', textAlign: 'center', padding: '2rem' }}>
-            Zatím nejsou žádné aktuality.
+            Zatím nejsou žádné aktuality. Klikněte na "Přidat aktualitu" pro vytvoření první aktuality.
           </p>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {getLatestGuides().map((guide) => {
-              const newGuide = isNew(guide.createdDate)
-              return (
-                <div key={guide.id} className="card" style={{ marginBottom: 0, opacity: guide.isResolved ? 0.6 : 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flex: 1 }}>
-                      {newGuide && (
-                        <span style={{
-                          width: '12px',
-                          height: '12px',
-                          borderRadius: '50%',
-                          background: '#0066ff',
-                          display: 'inline-block',
-                          flexShrink: 0
-                        }} />
-                      )}
-                      <h3 style={{ 
-                        color: '#000', 
-                        margin: 0,
-                        textDecoration: guide.isResolved ? 'line-through' : 'none'
-                      }}>
-                        {guide.title}
-                      </h3>
+            {guides
+              .sort((a, b) => b.createdDate.getTime() - a.createdDate.getTime())
+              .map((guide) => {
+                const newGuide = isNew(guide.createdDate)
+                return (
+                  <div key={guide.id} className="card" style={{ marginBottom: 0, opacity: guide.isResolved ? 0.6 : 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flex: 1 }}>
+                        {newGuide && (
+                          <span style={{
+                            width: '12px',
+                            height: '12px',
+                            borderRadius: '50%',
+                            background: '#0066ff',
+                            display: 'inline-block',
+                            flexShrink: 0
+                          }} />
+                        )}
+                        <h3 style={{ 
+                          color: '#000', 
+                          margin: 0,
+                          textDecoration: guide.isResolved ? 'line-through' : 'none'
+                        }}>
+                          {guide.title}
+                        </h3>
+                      </div>
+                      <span style={{ color: '#000', fontSize: '0.85rem' }}>{guide.createdAt}</span>
                     </div>
-                    <span style={{ color: '#000', fontSize: '0.85rem' }}>{guide.createdAt}</span>
+                    <div style={{ 
+                      color: '#000', 
+                      lineHeight: '1.6',
+                      whiteSpace: 'pre-wrap',
+                      textDecoration: guide.isResolved ? 'line-through' : 'none'
+                    }}>
+                      {guide.content}
+                    </div>
+                    <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', alignItems: 'center' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                        <input
+                          type="checkbox"
+                          checked={guide.isResolved}
+                          onChange={() => handleToggleResolved(guide.id)}
+                          style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                        />
+                        <span style={{ color: '#000', fontSize: '0.9rem' }}>Vyřešeno</span>
+                      </label>
+                      <button
+                        onClick={() => setGuides(guides.filter(g => g.id !== guide.id))}
+                        style={{
+                          padding: '0.5rem 1rem',
+                          background: '#dc3545',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          fontSize: '0.9rem'
+                        }}
+                      >
+                        Smazat
+                      </button>
+                    </div>
                   </div>
-                  <div style={{ 
-                    color: '#000', 
-                    lineHeight: '1.6',
-                    whiteSpace: 'pre-wrap',
-                    textDecoration: guide.isResolved ? 'line-through' : 'none'
-                  }}>
-                    {truncateContent(guide.content)}
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
           </div>
         )}
       </div>
