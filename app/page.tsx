@@ -8,6 +8,10 @@ export default function Home() {
         <p>Vítejte v akademii pro nábor a školení nových zaměstnanců</p>
         <nav>
           <Link href="/">Domů</Link>
+          <Link href="/old-royal-post">Old Royal Post</Link>
+          <Link href="/opletalova">Opletalova</Link>
+          <Link href="/karoliny-svetle">Karolíny Světlé</Link>
+          <Link href="/nosticova">Nosticova</Link>
           <Link href="/videa">Video Akademie</Link>
           <Link href="/kvizy">Kvízy</Link>
         </nav>
