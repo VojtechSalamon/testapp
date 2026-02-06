@@ -12,8 +12,6 @@ export default function Home() {
           <Link href="/opletalova">Opletalova</Link>
           <Link href="/karoliny-svetle">Karolíny Světlé</Link>
           <Link href="/nosticova">Nosticova</Link>
-          <Link href="/videa">Video Akademie</Link>
-          <Link href="/kvizy">Kvízy</Link>
         </nav>
       </div>
 
