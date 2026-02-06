@@ -29,22 +29,18 @@ export default function Home() {
         >
           <Link href="/old-royal-post" className="location-card">
             <h3>Old Royal Post</h3>
-            <p>Návody a informace</p>
           </Link>
 
           <Link href="/opletalova" className="location-card">
             <h3>Opletalova</h3>
-            <p>Návody a informace</p>
           </Link>
 
           <Link href="/karoliny-svetle" className="location-card">
             <h3>Karolíny Světlé</h3>
-            <p>Návody a informace</p>
           </Link>
 
           <Link href="/nosticova" className="location-card">
             <h3>Nosticova</h3>
-            <p>Návody a informace</p>
           </Link>
         </div>
       </div>

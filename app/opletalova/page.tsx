@@ -37,9 +37,26 @@ export default function OpletalovaPage() {
         <h1>Opletalova</h1>
         <nav>
           <Link href="/">Domů</Link>
-          <Link href="/videa">Video Akademie</Link>
-          <Link href="/kvizy">Kvízy</Link>
         </nav>
+      </div>
+
+      <div className="card" style={{ marginBottom: '2rem' }}>
+        <h2 style={{ marginBottom: '1.5rem' }}>Sekce</h2>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(3, 1fr)', 
+          gap: '1rem'
+        }}>
+          <Link href="/opletalova/bezpecnost" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>Bezpečnost</h3>
+          </Link>
+          <Link href="/opletalova/jak-na-to" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>Jak na to</h3>
+          </Link>
+          <Link href="/opletalova/o-rezidenci" className="location-card" style={{ textAlign: 'center' }}>
+            <h3>O rezidenci</h3>
+          </Link>
+        </div>
       </div>
 
       <div className="card">

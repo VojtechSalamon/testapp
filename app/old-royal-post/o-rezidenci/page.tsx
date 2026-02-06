@@ -10,7 +10,7 @@ interface Guide {
   createdAt: string
 }
 
-export default function OldRoyalPostPage() {
+export default function ORezidenciPage() {
   const [guides, setGuides] = useState<Guide[]>([])
   const [newGuideTitle, setNewGuideTitle] = useState('')
   const [newGuideContent, setNewGuideContent] = useState('')
@@ -34,34 +34,30 @@ export default function OldRoyalPostPage() {
   return (
     <div className="container">
       <div className="header">
-        <h1>Old Royal Post</h1>
+        <h1>Old Royal Post - O rezidenci</h1>
         <nav>
           <Link href="/">Domů</Link>
         </nav>
       </div>
 
-      <div className="card" style={{ marginBottom: '2rem' }}>
-        <h2 style={{ marginBottom: '1.5rem' }}>Sekce</h2>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(3, 1fr)', 
-          gap: '1rem'
-        }}>
-          <Link href="/old-royal-post/bezpecnost" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>Bezpečnost</h3>
-          </Link>
-          <Link href="/old-royal-post/jak-na-to" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>Jak na to</h3>
-          </Link>
-          <Link href="/old-royal-post/o-rezidenci" className="location-card" style={{ textAlign: 'center' }}>
-            <h3>O rezidenci</h3>
-          </Link>
-        </div>
+      <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <Link href="/old-royal-post" className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+          ← Zpět na Old Royal Post
+        </Link>
+        <Link href="/old-royal-post/bezpecnost" className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+          Bezpečnost
+        </Link>
+        <Link href="/old-royal-post/jak-na-to" className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+          Jak na to
+        </Link>
+        <Link href="/old-royal-post/o-rezidenci" className="btn" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+          O rezidenci
+        </Link>
       </div>
 
       <div className="card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h2>Návody - Old Royal Post</h2>
+          <h2>O rezidenci - Old Royal Post</h2>
           <button 
             onClick={() => setShowAddForm(!showAddForm)} 
             className="btn"
