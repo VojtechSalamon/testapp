@@ -4,8 +4,8 @@ export default function Home() {
   return (
     <div className="container">
       <div className="header">
-        <h1>🏨 Hotelová Akademie</h1>
-        <p>Vítejte v akademii pro nábor a školení nových hotelových zaměstnanců</p>
+        <h1>URBNWLF Onboarding Academy</h1>
+        <p>Vítejte v akademii pro nábor a školení nových zaměstnanců</p>
         <nav>
           <Link href="/">Domů</Link>
           <Link href="/videa">Video Akademie</Link>
@@ -14,9 +14,9 @@ export default function Home() {
       </div>
 
       <div className="card">
-        <h2>Vítejte v Hotelové Akademii</h2>
+        <h2>Vítejte v URBNWLF Onboarding Academy</h2>
         <p style={{ marginBottom: '1.5rem', color: '#666', lineHeight: '1.6' }}>
-          Tato akademie je navržena pro efektivní nábor a školení nových zaměstnanců v hotelovém průmyslu. 
+          Tato akademie je navržena pro efektivní nábor a školení nových zaměstnanců. 
           Prozkoumejte naše vzdělávací videa a otestujte své znalosti pomocí interaktivních kvízů.
         </p>
 

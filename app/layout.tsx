@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Hotelová Akademie - Video a Kvízová Akademie',
-  description: 'Akademie pro nábor a školení nových hotelových zaměstnanců',
+  title: 'URBNWLF Onboarding Academy',
+  description: 'Akademie pro nábor a školení nových zaměstnanců',
 }
 
 export default function RootLayout({
