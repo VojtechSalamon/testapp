@@ -4,8 +4,7 @@ export default function Home() {
   return (
     <div className="container">
       <div className="header">
-        <h1>🏨 Hotelová Akademie</h1>
-        <p>Vítejte v akademii pro nábor a školení nových hotelových zaměstnanců</p>
+        <h1>URBNWLF ACADEMY</h1>
         <nav>
           <Link href="/">Domů</Link>
         </nav>
