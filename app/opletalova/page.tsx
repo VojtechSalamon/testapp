@@ -148,7 +148,7 @@ export default function OpletalovaPage() {
 
       <div className="card" style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h2>Aktuality - Opletalova</h2>
+          <h2 style={{ margin: 0, color: '#000' }}>Aktuality</h2>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <button 
               onClick={() => setShowAddForm(!showAddForm)} 
@@ -274,7 +274,7 @@ export default function OpletalovaPage() {
 
       <div className="card" style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h2>Předání směny - Opletalova</h2>
+          <h2 style={{ margin: 0, color: '#000' }}>Předání směny</h2>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <button 
               onClick={() => setShowAddShiftHandoverForm(!showAddShiftHandoverForm)} 

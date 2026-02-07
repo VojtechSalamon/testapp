@@ -12,7 +12,6 @@ export default function ORezidenciPage() {
       </div>
 
       <div className="card">
-        <h2>O rezidenci</h2>
         <p style={{ color: '#000' }}>Obsah sekce O rezidenci pro Opletalova.</p>
       </div>
     </div>

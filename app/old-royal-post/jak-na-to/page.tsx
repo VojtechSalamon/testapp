@@ -12,7 +12,6 @@ export default function JakNaToPage() {
       </div>
 
       <div className="card">
-        <h2>Jak na to</h2>
         <p style={{ color: '#000' }}>Obsah sekce Jak na to pro Old Royal Post.</p>
       </div>
     </div>

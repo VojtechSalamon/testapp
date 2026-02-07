@@ -78,7 +78,7 @@ export default function AktualityPage() {
 
       <div className="card" style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h2>Aktuality - Opletalova</h2>
+          <h2 style={{ margin: 0, color: '#000' }}>Aktuality</h2>
           <button 
             onClick={() => setShowAddForm(!showAddForm)} 
             className="btn"
