@@ -19,6 +19,12 @@ export default function OldRoyalPostPage() {
   const [newGuideDate, setNewGuideDate] = useState(new Date().toISOString().split('T')[0])
   const [showAddForm, setShowAddForm] = useState(false)
 
+  const [shiftHandovers, setShiftHandovers] = useState<Guide[]>([])
+  const [newShiftHandoverTitle, setNewShiftHandoverTitle] = useState('')
+  const [newShiftHandoverContent, setNewShiftHandoverContent] = useState('')
+  const [newShiftHandoverDate, setNewShiftHandoverDate] = useState(new Date().toISOString().split('T')[0])
+  const [showAddShiftHandoverForm, setShowAddShiftHandoverForm] = useState(false)
+
   useEffect(() => {
     const saved = localStorage.getItem('old-royal-post-aktuality')
     if (saved) {
@@ -39,6 +45,27 @@ export default function OldRoyalPostPage() {
       localStorage.setItem('old-royal-post-aktuality', JSON.stringify(guides))
     }
   }, [guides])
+
+  useEffect(() => {
+    const saved = localStorage.getItem('old-royal-post-predani-smeny')
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved)
+        setShiftHandovers(parsed.map((g: any) => ({
+          ...g,
+          createdDate: new Date(g.createdDate)
+        })))
+      } catch (e) {
+        console.error('Error loading predani smeny:', e)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (shiftHandovers.length > 0) {
+      localStorage.setItem('old-royal-post-predani-smeny', JSON.stringify(shiftHandovers))
+    }
+  }, [shiftHandovers])
 
   const isNew = (createdDate: Date) => {
     const daysDiff = (new Date().getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24)
@@ -72,6 +99,31 @@ export default function OldRoyalPostPage() {
       setNewGuideContent('')
       setNewGuideDate(new Date().toISOString().split('T')[0])
       setShowAddForm(false)
+    }
+  }
+
+  const getLatestShiftHandovers = () => {
+    return shiftHandovers
+      .sort((a, b) => b.createdDate.getTime() - a.createdDate.getTime())
+      .slice(0, 3)
+  }
+
+  const handleAddShiftHandover = () => {
+    if (newShiftHandoverTitle.trim() && newShiftHandoverContent.trim()) {
+      const createdDate = new Date(newShiftHandoverDate)
+      const shiftHandover: Guide = {
+        id: Date.now().toString(),
+        title: newShiftHandoverTitle,
+        content: newShiftHandoverContent,
+        createdAt: createdDate.toLocaleDateString('cs-CZ'),
+        createdDate: createdDate,
+        isResolved: false
+      }
+      setShiftHandovers([...shiftHandovers, shiftHandover])
+      setNewShiftHandoverTitle('')
+      setNewShiftHandoverContent('')
+      setNewShiftHandoverDate(new Date().toISOString().split('T')[0])
+      setShowAddShiftHandoverForm(false)
     }
   }
 
@@ -219,6 +271,132 @@ export default function OldRoyalPostPage() {
                     textDecoration: guide.isResolved ? 'line-through' : 'none'
                   }}>
                     {truncateContent(guide.content)}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
+      </div>
+
+      <div className="card" style={{ marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+          <h2>Předání směny - Old Royal Post</h2>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button 
+              onClick={() => setShowAddShiftHandoverForm(!showAddShiftHandoverForm)} 
+              className="btn"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+            >
+              {showAddShiftHandoverForm ? 'Zrušit' : 'Přidat'}
+            </button>
+            <Link 
+              href="/old-royal-post/predani-smeny"
+              className="btn"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+            >
+              Zobrazit všechny
+            </Link>
+          </div>
+        </div>
+
+        {showAddShiftHandoverForm && (
+          <div style={{ 
+            padding: '1.5rem', 
+            background: '#f9fafb', 
+            borderRadius: '8px', 
+            marginBottom: '2rem',
+            border: '2px solid #000'
+          }}>
+            <h3 style={{ marginBottom: '1rem', color: '#000' }}>Nové předání směny</h3>
+            <input
+              type="text"
+              placeholder="Název předání směny"
+              value={newShiftHandoverTitle}
+              onChange={(e) => setNewShiftHandoverTitle(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                marginBottom: '1rem',
+                border: '1px solid #ddd',
+                borderRadius: '8px',
+                fontSize: '1rem'
+              }}
+            />
+            <textarea
+              placeholder="Obsah předání směny"
+              value={newShiftHandoverContent}
+              onChange={(e) => setNewShiftHandoverContent(e.target.value)}
+              rows={6}
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                marginBottom: '1rem',
+                border: '1px solid #ddd',
+                borderRadius: '8px',
+                fontSize: '1rem',
+                fontFamily: 'inherit',
+                resize: 'vertical'
+              }}
+            />
+            <input
+              type="date"
+              value={newShiftHandoverDate}
+              onChange={(e) => setNewShiftHandoverDate(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                marginBottom: '1rem',
+                border: '1px solid #ddd',
+                borderRadius: '8px',
+                fontSize: '1rem'
+              }}
+            />
+            <button onClick={handleAddShiftHandover} className="btn">
+              Uložit předání směny
+            </button>
+          </div>
+        )}
+
+        {shiftHandovers.length === 0 ? (
+          <p style={{ color: '#000', textAlign: 'center', padding: '2rem' }}>
+            Zatím nejsou žádná předání směny.
+          </p>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {getLatestShiftHandovers().map((shiftHandover) => {
+              const newShiftHandover = isNew(shiftHandover.createdDate)
+              return (
+                <div key={shiftHandover.id} className="card" style={{ marginBottom: 0, opacity: shiftHandover.isResolved ? 0.6 : 1 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flex: 1 }}>
+                      {newShiftHandover && (
+                        <span style={{
+                          width: '12px',
+                          height: '12px',
+                          borderRadius: '50%',
+                          background: '#0066ff',
+                          display: 'inline-block',
+                          flexShrink: 0
+                        }} />
+                      )}
+                      <h3 style={{ 
+                        color: '#000', 
+                        margin: 0,
+                        textDecoration: shiftHandover.isResolved ? 'line-through' : 'none'
+                      }}>
+                        {shiftHandover.title}
+                      </h3>
+                    </div>
+                    <span style={{ color: '#000', fontSize: '0.85rem' }}>{shiftHandover.createdAt}</span>
+                  </div>
+                  <div style={{ 
+                    color: '#000', 
+                    lineHeight: '1.6',
+                    whiteSpace: 'pre-wrap',
+                    textDecoration: shiftHandover.isResolved ? 'line-through' : 'none'
+                  }}>
+                    {truncateContent(shiftHandover.content)}
                   </div>
                 </div>
               )
