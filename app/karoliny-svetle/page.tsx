@@ -129,13 +129,6 @@ export default function KarolinySvetlePage() {
 
   return (
     <div className="container">
-      <div className="header">
-        <h1>Karolíny Světlé</h1>
-        <nav>
-          <Link href="/">Domů</Link>
-        </nav>
-      </div>
-
       <div style={{ 
         display: 'flex', 
         gap: '1rem', 

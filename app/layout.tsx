@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import HeaderBar from './components/HeaderBar'
 
 export const metadata: Metadata = {
   title: 'URBNWLF Onboarding Academy',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="cs">
-      <body>{children}</body>
+      <body>
+        <HeaderBar />
+        {children}
+      </body>
     </html>
   )
 }

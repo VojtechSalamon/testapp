@@ -129,13 +129,6 @@ export default function OpletalovaPage() {
 
   return (
     <div className="container">
-      <div className="header">
-        <h1>Opletalova</h1>
-        <nav>
-          <Link href="/">Domů</Link>
-        </nav>
-      </div>
-
       <div style={{ 
         display: 'flex', 
         gap: '1rem', 
