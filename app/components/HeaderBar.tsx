@@ -17,6 +17,7 @@ const subpageNames: Record<string, string> = {
   'aktuality': 'Aktuality',
   'predani-smeny': 'Předání směny',
   'online-bezpecnost': 'Online bezpečnost',
+  'tydenni-review-prehled': 'Týdenní review přehled',
 }
 
 export default function HeaderBar() {
@@ -50,6 +51,9 @@ export default function HeaderBar() {
               const segment = segments[i]
               // Pokud je to online-bezpecnost (vnořená pod bezpecnost), použijeme ji
               if (segment === 'online-bezpecnost') {
+                return subpageNames[segment] || null
+              }
+              if (segment === 'tydenni-review-prehled') {
                 return subpageNames[segment] || null
               }
               // Jinak zkontrolujeme, jestli je to známá podstránka
