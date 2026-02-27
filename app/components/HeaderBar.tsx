@@ -18,6 +18,7 @@ const subpageNames: Record<string, string> = {
   'predani-smeny': 'Předání směny',
   'online-bezpecnost': 'Online bezpečnost',
   'tydenni-review-prehled': 'Týdenní review přehled',
+  'reseni-problemu-s-hosty': 'Řešení problémů s hosty',
 }
 
 export default function HeaderBar() {
@@ -54,6 +55,9 @@ export default function HeaderBar() {
                 return subpageNames[segment] || null
               }
               if (segment === 'tydenni-review-prehled') {
+                return subpageNames[segment] || null
+              }
+              if (segment === 'reseni-problemu-s-hosty') {
                 return subpageNames[segment] || null
               }
               // Jinak zkontrolujeme, jestli je to známá podstránka

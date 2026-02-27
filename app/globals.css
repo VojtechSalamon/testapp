@@ -278,6 +278,34 @@ a {
   margin: 0;
 }
 
+/* Černé kolečko s bílým číslem pro seznam Zásady */
+.zasady-list {
+  list-style: none;
+  counter-reset: zasady;
+}
+.zasady-list.zasady-list-reset {
+  counter-reset: zasady;
+}
+.zasady-list li {
+  counter-increment: zasady;
+}
+.zasady-list li::before {
+  content: counter(zasady);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 28px;
+  height: 28px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
